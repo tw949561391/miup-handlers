@@ -7,7 +7,7 @@ module.exports = function () {
             ctx.body = {
                 code: e.code || 500,
                 msg: e.message,
-                name: e.name || 'unknow error'
+                name: e.name || 'unknow'
             }
         }
     }
