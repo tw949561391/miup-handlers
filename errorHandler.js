@@ -9,12 +9,14 @@ module.exports = function () {
             let status = body.status || 500;
             let name = body.name || e.name;
             let msg = body.msg || e.message;
+            let source = "miup";
 
             ctx.status = status;
             ctx.body = {
                 code: code,
                 msg: msg,
-                name: name
+                name: name,
+                source: source
             }
         }
     }
