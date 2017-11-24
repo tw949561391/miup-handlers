@@ -6,7 +6,7 @@ module.exports = function () {
         } catch (e) {
             let body = e.body || {};
             let code = body.code || e.code || 500;
-            let status = body.status || 500;
+            let status = body.status ||e.status|| 500;
             let name = body.name || e.name;
             let msg = body.msg || e.message;
             let source = "miup";
