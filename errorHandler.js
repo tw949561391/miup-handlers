@@ -1,13 +1,20 @@
+const Util = require('util');
 module.exports = function () {
     return async (ctx, next) => {
         try {
             await next();
         } catch (e) {
-            ctx.status = e.status || 500;
+            let body = e.body || {};
+            let code = body.code || 500;
+            let status = body.status || 500;
+            let name = body.name || e.name;
+            let msg = body.msg || e.message;
+
+            ctx.status = status;
             ctx.body = {
-                code: e.code || 500,
-                msg: e.message,
-                name: e.name || 'unknow'
+                code: code,
+                msg: msg,
+                name: name
             }
         }
     }
